@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model ZakatCalculation {
+  id          String   @id @default(cuid())
+  userId      String   // Clerk userId
+
+  // Identité de l'entreprise
+  companyName String
+  year        Int
+  siren       String?  // SIREN 9 chiffres — anti-bypass cross-account
+
+  // Actifs zakatable
+  cash        Float @default(0)
+  stocks      Float @default(0)
+  receivables Float @default(0)
+
+  // Passifs déductibles
+  debts         Float @default(0)
+  supplierDebts Float @default(0)
+  taxDebts      Float @default(0)
+  salaryDebts   Float @default(0)
+
+  // Résultats calculés
+  nisabValue  Float
+  finalZakat  Float
+
+  // Métadonnées
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([userId, createdAt])
+}
+
+model GoldPriceConfig {
+  id           String   @id @default("singleton")
+  pricePerGram Float    @default(77.5) // EUR per gram
+  source       String   @default("manual") // "manual" | "coinbase"
+  updatedAt    DateTime @updatedAt
+}
+
+model UserSubscription {
+  id                   String    @id @default(cuid())
+  userId               String    @unique // Clerk userId
+  plan                 String    @default("free") // "free" | "pro" | "cabinet"
+  status               String    @default("inactive") // "active" | "inactive" | "canceled"
+  stripeCustomerId     String?
+  stripeSubscriptionId String?
+  stripePriceId        String?
+  currentPeriodEnd     DateTime?
+  archiveAccess        Boolean   @default(false) // lifetime archive access for paid reports
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  @@index([userId])
+}
