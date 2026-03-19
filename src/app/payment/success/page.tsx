@@ -83,7 +83,7 @@ function SuccessContent() {
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-3 pt-2">
           <Button asChild className="flex-1 gap-2 h-11">
-            <Link href="/calculate">
+            <Link href="/calculateur">
               Calculer ma Zakat
               <ArrowRight className="h-4 w-4" />
             </Link>

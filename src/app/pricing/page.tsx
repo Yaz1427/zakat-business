@@ -107,7 +107,7 @@ export default function PricingPage() {
                 </li>
               </ul>
               <Button asChild variant="outline" className="w-full">
-                <Link href="/calculate">Commencer gratuitement</Link>
+                <Link href="/calculateur">Commencer gratuitement</Link>
               </Button>
             </div>
 

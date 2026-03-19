@@ -204,7 +204,7 @@ export default function HomePage() {
               ))}
             </ul>
             <Button asChild variant="outline" className="w-full">
-              <Link href="/calculate">Commencer</Link>
+              <Link href="/calculateur">Commencer</Link>
             </Button>
           </div>
           {/* Pro */}

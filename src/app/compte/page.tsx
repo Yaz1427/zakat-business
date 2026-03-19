@@ -168,7 +168,7 @@ export default function ComptePage() {
             )}
           </div>
           <Button asChild className="gap-2 h-10 self-start sm:self-auto">
-            <Link href="/calculate">
+            <Link href="/calculateur">
               <Calculator className="h-4 w-4" />
               Nouveau calcul
             </Link>
@@ -222,7 +222,7 @@ export default function ComptePage() {
               </p>
             </div>
             <Button asChild className="gap-2">
-              <Link href="/calculate">
+              <Link href="/calculateur">
                 Calculer ma Zakat
                 <ArrowRight className="h-4 w-4" />
               </Link>

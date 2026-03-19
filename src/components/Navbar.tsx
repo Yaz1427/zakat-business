@@ -87,7 +87,7 @@ export default function Navbar() {
           </SignedIn>
 
           <Button asChild size="sm" className="gap-1.5">
-            <Link href="/calculate">
+            <Link href="/calculateur">
               <Calculator className="h-3.5 w-3.5" />
               Calculer
             </Link>
@@ -159,7 +159,7 @@ export default function Navbar() {
           </SignedOut>
           <div className="pt-1">
             <Button asChild size="sm" className="w-full gap-1.5">
-              <Link href="/calculate" onClick={() => setMobileOpen(false)}>
+              <Link href="/calculateur" onClick={() => setMobileOpen(false)}>
                 <Calculator className="h-3.5 w-3.5" />
                 Calculer ma Zakat
               </Link>

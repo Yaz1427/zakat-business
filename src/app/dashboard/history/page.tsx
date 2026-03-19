@@ -230,7 +230,7 @@ export default function HistoryPage() {
               </p>
             </div>
             <Button asChild className="gap-2">
-              <Link href="/calculate">Calculer ma Zakat <ArrowRight className="h-4 w-4" /></Link>
+              <Link href="/calculateur">Calculer ma Zakat <ArrowRight className="h-4 w-4" /></Link>
             </Button>
           </div>
         )}
